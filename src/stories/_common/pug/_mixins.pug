@@ -1,0 +1,29 @@
+mixin img(name ,alt='Image' ,customClass=false)
+  img(src=path+"/assets/images/" + name ,alt=alt ,title=alt ,loading="lazy" class=customClass ? customClass : null)
+
+mixin btn(data={})
+  -
+    let {
+      text="Tìm hiểu thêm",
+      customClass=false,
+      isButton=false,
+      icon=false,
+      modalLink=false
+    } = data
+
+  if isButton
+    button.btn(type="button" class= customClass ? `${customClass}` : null)
+      if text
+        span!= text
+      if icon
+        +img(icon, text, text)
+      else
+        +img('icon/icon_btn_pri.svg')
+  else
+    a.btn(href=modalLink ? `#${modalLink}` : "#!" class= customClass ? `${customClass}` : null rel=modalLink ? 'modal:open nofollow' : null)
+      if text
+        span!= text
+      if icon
+        +img(icon, text, text)
+      else
+        +img('icon/icon_btn_pri.svg')

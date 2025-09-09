@@ -1,6 +1,72 @@
-.hero-card
-  .hero-card__media
-    img.hero-card__img(src=imgSrc, alt=title)
-  .hero-card__body
-    h3.hero-card__title #{title}
-    p.hero-card__desc #{desc} asdasdas
+//- Bỏ phần này khi copy về
+include /src/stories/_common/pug/_mixins.pug
+
+section.intro
+  .intro-wrap(data-aos="fade-in")
+    .circle-wrap
+      .circle-group
+        .circle-line
+          .circle-line_box
+          .circle-line_group
+            .circle-line_img
+              +img("home/intro3.jpg")
+            .circle-line_img
+              +img("home/intro2.jpg")
+            .circle-line_img
+              +img("home/intro1.jpg")
+            .circle-line_img
+              +img("home/intro3.jpg")
+            .circle-line_img
+              +img("home/intro2.jpg")
+            .circle-line_img
+              +img("home/intro1.jpg")
+
+        .circle-line
+          .circle-line_box
+          .circle-line_group
+            .circle-line_img
+              +img("home/intro4.jpg")
+            .circle-line_img
+              +img("home/intro5.jpg")
+            .circle-line_img
+              +img("home/intro4.jpg")
+            .circle-line_img
+              +img("home/intro5.jpg")
+
+        h2.circle-content_logo
+          +img("home/logo.png")
+          span Trung Kiên Landscape
+
+      .circle-box
+        .circle-img
+          +img("home/intro_decor.png")
+        .circle-content
+          h2.circle-content_logo
+            +img("home/logo.png")
+            span Trung Kiên Landscape
+
+          .circle-txt.mona-content
+            p Năm
+              strong  2010
+              |  đánh dấu sự ra đời của
+              strong  Trung Kiên Landscape
+              |  , một thương hiệu
+              br
+              |  cảnh quan mang giá trị và uy tín không ngừng gia tăng. Đặt tại
+              strong  Làng hoa
+              br
+              strong  Xuân Quan, Văn Giang, Hưng Yên
+              |  , Trung Kiên Landscape đã vươn mình trở thành một trong những
+              strong  người lãnh đạo hàng đầu
+              |  trong lĩnh vực
+              strong  cảnh quan
+              |  tại Việt Nam.
+            p Với đội ngũ
+              strong  chuyên nghiệp, sáng tạo,
+              |  chúng tôi cung cấp đa dạng dịch vụ
+              strong  thiết kế, thi công và duy trì cảnh quan
+              |  , kiến tạo những
+              strong  không gian xanh độc đáo và bền vững.
+
+          .circle-action
+            +btn({text: 'Xem thêm'})

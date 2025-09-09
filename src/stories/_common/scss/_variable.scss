@@ -1,0 +1,54 @@
+//  1. CSS Custom Properties
+:root {
+  /* Typography */
+  --font-pri: 'SVN-Gilroy', sans-serif;
+  --font-sec: 'MTD-Black-and-Shadow-Font', sans-serif;
+
+  /* Color Palette */
+  --color-pri: #008566;
+  --color-sec: #f3b634;
+  --color-third: #14b795;
+  --color-fourth: #006d4f;
+
+  --color-text: #333;
+  --color-text-2: #404040;
+  --color-text-3: #1a1a1a;
+  --color-text-4: #808080;
+
+  --color-text-5: #d0d5dd;
+
+  --color-white: #fff;
+  --color-black: #000;
+
+  // Container
+  --container-width: 124.8rem;
+  --container-padding: 1.6rem;
+
+  // Footer
+  --footer-clr-text: #fff;
+  --footer-clr-text-cpr: #d2d2d2;
+  --footer-bg-color: #191c19;
+
+  // Z-index
+  --z-i-header: 100;
+}
+
+//  2. Sass Variables
+$font-pri: var(--font-pri);
+$font-sec: var(--font-sec);
+// $font-third: var(--font-third);
+// $font-fourth: var(--font-fourth);
+
+$color-pri: var(--color-pri);
+$color-sec: var(--color-sec);
+$color-third: var(--color-third);
+$color-fourth: var(--color-fourth);
+
+$color-text: var(--color-text);
+$color-text-2: var(--color-text-2);
+$color-text-3: var(--color-text-3);
+$color-text-4: var(--color-text-4);
+$color-text-5: var(--color-text-5);
+
+$color-white: var(--color-white);
+$color-black: var(--color-black);

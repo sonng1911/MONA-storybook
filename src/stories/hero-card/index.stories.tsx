@@ -45,7 +45,10 @@ export const Overview: Story = {
 
     return (
       <>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <div
+          style={{ width: '80vw', maxWidth: '1000px', margin: '0 auto' }}
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </>
     );
   },
