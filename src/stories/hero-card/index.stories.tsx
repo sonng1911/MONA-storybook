@@ -1,0 +1,52 @@
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import renderPug from './hero-card.compiled.js';
+import './hero-card.scss';
+import previewUrl from './product1.png?url';
+
+type Props = {
+  imgSrc: string;
+  imgAlt: string;
+  title: string;
+  desc: string;
+  ctaHref: string;
+  ctaLabel: string;
+};
+
+const meta: Meta<Props> = {
+  title: 'Cards/Style 1',
+  parameters: { layout: 'centered' },
+  // tags: ['!dev'],
+
+  argTypes: {
+    imgSrc: { control: 'text' },
+    title: { control: 'text' },
+    desc: { control: 'text' },
+    ctaHref: { control: 'text' },
+    ctaLabel: { control: 'text' },
+  },
+};
+
+export default meta;
+
+type Story = StoryObj;
+
+export const Overview: Story = {
+  // Default args
+  args: {
+    imgSrc: (previewUrl as any).blurDataURL,
+    title: 'Thiết kế nhanh & nhất quán',
+    desc: 'Mẫu thẻ hero tối giản để tái sử dụng.',
+    ctaHref: '#!',
+    ctaLabel: 'Bắt đầu ngay',
+  },
+
+  render: (args) => {
+    const html = renderPug(args);
+
+    return (
+      <>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </>
+    );
+  },
+};

@@ -1,0 +1,8 @@
+html {
+  font-size: 62.5%;
+}
+
+pre.prismjs {
+  font-size: 1.6rem;
+  font-family: var(--font-root);
+}

@@ -1,0 +1,161 @@
+/* =========================
+   STORIES GALLERY (rem + tokens)
+   ========================= */
+
+/* ========== CONTAINER ========== */
+.container {
+  /* Position */
+  position: relative;
+
+  /* Layout */
+  max-width: var(--wrap-max);
+  margin: 0 auto;
+
+  /* Box model */
+  padding: var(--pad-y) var(--pad-x);
+
+  /* Typography */
+  color: var(--color-text);
+}
+
+/* ========== HEADER ========== */
+.header {
+  /* Box model */
+  margin: 0 0 var(--gap-20);
+
+  /* Title */
+  h1 {
+    margin: 0 0 .6rem;
+    font-size: var(--fs-title);
+    /* responsive */
+    line-height: var(--lh-tight);
+    /* % */
+    letter-spacing: var(--ls-tight);
+    font-weight: 700;
+    /* ≤ 700 */
+  }
+
+  /* Subtitle */
+  p {
+    margin: 0;
+    max-width: 70rem;
+    font-size: var(--fs-desc);
+    /* responsive */
+    line-height: var(--lh-normal);
+    /* % */
+    color: var(--color-muted);
+    font-weight: 400;
+  }
+}
+
+/* ========== GRID ========== */
+.grid {
+  /* Reset list */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  /* Layout */
+  display: grid;
+  gap: var(--gap-24);
+  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+}
+
+/* ========== CARD ========== */
+.card {
+  /* Visual */
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+
+  /* Box model */
+  padding: 1.2rem;
+
+  /* Effects */
+  transition: box-shadow .2s ease, transform .12s ease, border-color .2s ease;
+
+  /* Interactions (qua .link để keyboard focus cũng được hover state) */
+  &:has(.link:focus-visible),
+  &:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-.1rem);
+    border-color: rgba(10, 10, 10, 0.12);
+  }
+}
+
+/* Toàn bộ card click được, vẫn đảm bảo a11y */
+.link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  /* Focus ring rõ ràng trên toàn card */
+  &:focus-visible {
+    outline: 0;
+  }
+}
+
+/* ========== THUMBNAIL ========== */
+.thumb {
+  /* Position */
+  position: relative;
+
+  /* Box model */
+  aspect-ratio: 4 / 3;
+  border-radius: calc(var(--radius-md) - .4rem);
+  overflow: hidden;
+
+  /* Visual */
+  background: var(--thumb-bg);
+}
+
+/* Next/Image fill sẽ gắn class này */
+.img {
+  object-fit: cover;
+  transition: transform .28s ease;
+}
+
+/* Hover zoom nhẹ */
+.card:hover .img,
+.card:has(.link:focus-visible) .img {
+  transform: scale(1.02);
+}
+
+/* ========== META ROW ========== */
+.meta {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* Box model */
+  margin-top: 1rem;
+}
+
+/* Label trái */
+.label {
+  font-size: 1.5rem;
+  line-height: 120%;
+  font-weight: 600;
+  /* ≤ 700 */
+}
+
+/* Open hint phải */
+.open {
+  font-size: 1.2rem;
+  line-height: 140%;
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+/* ========== REDUCED MOTION SAFE ========== */
+@media (prefers-reduced-motion: reduce) {
+  .img {
+    transition: none;
+  }
+
+  .card {
+    transition: none;
+  }
+}

@@ -1,0 +1,19 @@
+import { Meta, Canvas, Source, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './index.stories';
+
+import pugCode from './hero-card.pug?raw';
+import scssCode from './hero-card.scss?raw';
+
+<Meta of={Stories} />
+
+# HeroCard
+
+## Preview
+abc
+<Canvas of={Stories.Overview} />
+
+## Pug (HTML)
+<Source code={pugCode} language="pug" format={false}/>
+
+## SCSS
+<Source code={scssCode} language="scss" format={false}/>

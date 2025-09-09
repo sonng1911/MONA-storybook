@@ -1,0 +1,191 @@
+/* =========================
+   HOME PAGE (rem + tokens)
+   ========================= */
+
+/* ========== WRAP ========== */
+.wrap {
+  /* Position */
+  position: relative;
+  min-height: 100svh;
+
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+
+  /* Typography */
+  color: var(--color-text);
+
+  /* Visual */
+  background: var(--bg-page);
+}
+
+/* ========== BACKGROUND (đẹp hơn) ========== */
+.bg {
+  /* Position */
+  position: absolute;
+  inset: -20%;
+
+  /* Base spots */
+  background:
+    radial-gradient(90rem 50rem at 15% 15%, #cfe3ff 0%, transparent 60%),
+    radial-gradient(80rem 50rem at 85% 30%, #ffe0ef 0%, transparent 60%),
+    radial-gradient(90rem 60rem at 50% 85%, #e6fffb 0%, transparent 60%);
+  filter: saturate(1.05) blur(0.2rem);
+  pointer-events: none;
+
+  /* Aurora + vignette + grid dots bằng pseudo elements (không đổi JSX) */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* Aurora mềm bằng conic + mask */
+  &::before {
+    background:
+      conic-gradient(from 220deg at 60% 40%,
+        transparent 0turn,
+        var(--aurora-1) .12turn,
+        transparent .24turn,
+        var(--aurora-2) .38turn,
+        transparent .52turn,
+        var(--aurora-3) .66turn,
+        transparent 1turn);
+    filter: blur(3rem) saturate(1.1);
+    /* mask để aurora chỉ phủ một vài vùng */
+    -webkit-mask:
+      radial-gradient(60rem 44rem at 22% 28%, #000 0%, transparent 62%),
+      radial-gradient(68rem 42rem at 78% 70%, #000 0%, transparent 58%);
+    mask:
+      radial-gradient(60rem 44rem at 22% 28%, #000 0%, transparent 62%),
+      radial-gradient(68rem 42rem at 78% 70%, #000 0%, transparent 58%);
+  }
+
+  /* Vignette nhẹ + lưới chấm rất mờ */
+  &::after {
+    background:
+      /* grid dots */
+      radial-gradient(var(--dot) 1px, transparent 1px),
+      /* vignette đáy trang */
+      radial-gradient(100% 140% at 50% 120%, transparent 60%, var(--vignette) 100%);
+    background-size: 2rem 2rem, cover;
+    background-position: 0 0, center;
+    opacity: .5;
+    /* tổng thể rất nhẹ */
+  }
+}
+
+/* ========== CENTER BLOCK ========== */
+.center {
+  /* Position */
+  position: relative;
+  z-index: 1;
+
+  /* Layout */
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: var(--gap-16);
+
+  /* Box model */
+  padding: var(--pad-y) var(--pad-x);
+}
+
+/* ========== TITLE ========== */
+.title {
+  /* Box model */
+  margin: 0 0 1rem;
+
+  /* Typography */
+  font-size: var(--fs-title);
+  /* responsive */
+  line-height: var(--lh-tight);
+  /* % */
+  letter-spacing: var(--ls-tight);
+  font-weight: 700;
+  /* ≤ 700 */
+}
+
+/* ========== DESCRIPTION ========== */
+.desc {
+  /* Box model */
+  margin: 0 0 2.2rem;
+  max-width: 60rem;
+
+  /* Typography */
+  font-size: var(--fs-desc);
+  /* responsive */
+  line-height: var(--lh-normal);
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+/* ========== BUTTON (màu phẳng) ========== */
+.btn {
+  /* Layout */
+  display: inline-block;
+  text-decoration: none;
+
+  /* Box model */
+  padding: 1.2rem 1.8rem;
+  border-radius: var(--radius-md);
+
+  /* Typography */
+  font-size: var(--fs-btn);
+  /* responsive */
+  line-height: 120%;
+  font-weight: 700;
+  /* ≤ 700 */
+
+  /* Visual */
+  color: var(--btn-fg);
+  background: var(--btn-bg);
+
+  /* Effects */
+  box-shadow: var(--btn-shadow-lg);
+  transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+
+  /* Interactive */
+  &:hover {
+    background: var(--btn-bg-hover);
+    transform: translateY(-0.1rem);
+    filter: saturate(1.02);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 0;
+    box-shadow: var(--focus-ring-1), var(--focus-ring-2);
+  }
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  /* Position */
+  position: relative;
+  z-index: 1;
+
+  /* Box model */
+  padding: 1.4rem 1.2rem;
+
+  /* Layout */
+  text-align: center;
+
+  /* Typography (inner) */
+  small {
+    font-size: var(--fs-small);
+    /* responsive */
+    line-height: 140%;
+    color: #6a7086;
+    font-weight: 400;
+  }
+}

@@ -1,42 +1,149 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  font-size: 62.5%;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  height: 100%;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+/* ===== Tokens toàn cục ===== */
+:root {
+  /* Color */
+  --color-text: #0b0c10;
+  --color-muted: #3b3f52;
+  --bg-page: #f8f9ff;
+
+  /* Color Brand */
+  --brand-1: #6d8fff;
+  --brand-2: #7a5bff;
+  --brand-3: #ff6aa2;
+
+  /* Button */
+  --btn-fg: #ffffff;
+  --btn-bg: #6d8fff;
+  --btn-bg-hover: #607efc;
+  --btn-shadow-lg: 0 1rem 2.8rem rgba(109, 143, 255, 0.35);
+
+  /* Homepage aurora */
+  --aurora-1: rgba(96, 125, 255, 0.28);
+  --aurora-2: rgba(255, 115, 182, 0.22);
+  --aurora-3: rgba(0, 205, 255, 0.18);
+  --vignette: rgba(0, 0, 0, 0.06);
+  --dot: rgba(0, 0, 0, 0.05);
+
+  /* Typography */
+  --fs-title: clamp(3.2rem, 2rem + 2.5vw, 5.6rem);
+  --fs-desc: clamp(1.4rem, 1.1rem + 0.6vw, 1.8rem);
+  --fs-btn: clamp(1.4rem, 1.2rem + 0.3vw, 1.6rem);
+  --fs-small: clamp(1.1rem, 1rem + 0.15vw, 1.2rem);
+
+  /* Line height */
+  --lh-tight: 106%;
+  --lh-normal: 160%;
+
+  /* Letter-spacing */
+  --ls-tight: -0.096rem;
+
+  /* Spacing & radius */
+  --gap-16: 1.6rem;
+  --pad-y: 4.8rem;
+  --pad-x: 2.4rem;
+  --radius-md: 1.2rem;
+
+  /* Focus ring */
+  --focus-ring-1: 0 0 0 0.3rem rgba(255, 255, 255, 0.9);
+  --focus-ring-2: 0 0 0 0.6rem rgba(125, 120, 255, 0.6);
+
+  /* ===== Gallery tokens ===== */
+  --wrap-max: 112rem;
+  --gap-20: 2rem;
+  --gap-24: 2.4rem;
+
+  --card-bg: #ffffff;
+  --card-border: rgba(10, 10, 10, 0.08);
+  --card-shadow: 0 .8rem 2.4rem rgba(10, 10, 10, 0.06);
+  --card-shadow-hover: 0 1.2rem 3.2rem rgba(10, 10, 10, 0.10);
+
+  --thumb-bg: #f3f5f8;
+}
+
+.font-root {
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--lh-normal);
+  letter-spacing: 0;
+
+  /* Tối ưu hiển thị & kerning */
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-kerning: normal;
+
+  /* Bật các OpenType cơ bản (đa số trình duyệt đã auto, để rõ ràng) */
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+
+  /* Với variable font: mặc định peso 400, có thể override theo component */
+  font-variation-settings: "wght" 400;
+
+  /* Không cho trình duyệt tự giả lập đậm/nghiêng */
+  font-synthesis-weight: none;
+  font-synthesis-style: none;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.fw-300 {
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.fw-400 {
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.fw-500 {
+  font-weight: 500;
+  font-variation-settings: "wght" 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+  font-variation-settings: "wght" 600;
+}
+
+.fw-700 {
+  font-weight: 700;
+  font-variation-settings: "wght" 700;
+}
+
+.fw-800 {
+  font-weight: 800;
+  font-variation-settings: "wght" 800;
+}
+
+.fw-900 {
+  font-weight: 900;
+  font-variation-settings: "wght" 900;
+}
+
+.em {
+  font-style: italic;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+em,
+i {
+  font-style: italic;
 }
