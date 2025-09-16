@@ -1,8 +1,10 @@
 //- Bỏ phần này khi copy về
+@use '../_common/scss/reset' as *;
 @use '../_common/scss/mixins' as *;
 @use '../_common/scss/font' as *;
 @use '../_common/scss/variable' as *;
-
+@use '../_common/scss/btn' as *;
+@use '../_common/scss/base' as *;
 
 .intro {
   position: relative;

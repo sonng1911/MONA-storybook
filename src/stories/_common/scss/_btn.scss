@@ -1,0 +1,185 @@
+@use './reset' as *;
+@use './mixins' as *;
+@use './variable' as *;
+@use './font' as *;
+@use './base' as *;
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, 0.8rem);
+  white-space: nowrap;
+
+  width: fit-content;
+  max-width: 100%;
+  height: fit-content;
+  text-align: center;
+
+  font-family: var(--btn-font-family, $font-pri);
+  @include fz-18;
+  color: var(--btn-color, #{$color-white});
+  font-weight: var(--btn-font-weight, 600);
+  line-height: var(--btn-line-height, 133.333%);
+  letter-spacing: -0.018rem;
+  text-transform: var(--btn-text-transform);
+
+  padding: var(--btn-padding, 1.2rem 2.4rem);
+  border-radius: var(--btn-border-radius, 999rem);
+  background-color: var(--btn-bg, $color-sec);
+  // border: 1px solid var(--btn-border-color, transparent);
+
+  box-shadow: 1rem 1rem 4rem 0 rgba(0, 0, 0, 0.10);
+  -webkit-box-shadow: 1rem 1rem 4rem 0 rgba(0, 0, 0, 0.10);
+
+  position: relative;
+  z-index: 1;
+
+  overflow: hidden;
+  transition: 0.4s ease all;
+  cursor: pointer;
+
+  @include max(576px) {
+    --btn-padding: 0.8rem 1.2rem;
+  }
+
+  img {
+    flex-shrink: 0;
+
+    width: var(--btn-img-width, 1.8rem);
+    height: var(--btn-img-height, 1.8rem);
+    object-fit: contain;
+
+    filter: var(--btn-img-filter);
+    -webkit-filter: var(--btn-img-filter);
+
+    transition: 0.4s filter, 0.4s -webkit-filter;
+
+    @include max(576px) {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+  }
+
+  &.loading {
+    pointer-events: none;
+  }
+
+  .wpcf7-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-color: var(--btn-bg-hover, #{$color-third});
+
+    opacity: 0;
+    transition: 0.4s all ease;
+  }
+
+  @include min(1200px) {
+
+    &:hover,
+    &:focus-visible {
+      color: var(--btn-color-hover, #{$color-white});
+    }
+
+    &:hover img,
+    &:focus-visible img {
+      filter: var(--btn-img-filter-hover);
+      -webkit-filter: var(--btn-img-filter-hover);
+    }
+
+    &:hover:before,
+    &:focus-visible:before {
+      transition: 0.4s all ease;
+      left: 0;
+      right: 0;
+      opacity: 1;
+    }
+  }
+
+  &-center {
+    margin: 0 auto;
+  }
+
+  &-sec {
+    --btn-bg-hover: #{$color-white};
+
+    --btn-color-hover: #{$color-text-2};
+
+    --btn-border-color-hover: #{$color-pri};
+
+    --btn-img-filter: none;
+    --btn-img-filter-hover: brightness(0) invert(0);
+  }
+
+  &-link {
+    color: $color-third;
+    @include fz-20;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: -0.02rem;
+
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 0 auto;
+
+    @include max(576px) {
+      font-size: 1.4rem;
+    }
+
+    @include min(1200px) {
+
+      &:hover,
+      &:focus-visible {
+        text-decoration: underline;
+
+        img {
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    img {
+      flex-shrink: 0;
+
+      width: 2rem;
+      height: 2rem;
+      object-fit: contain;
+
+      transition: 0.4s transform;
+
+      @include max(576px) {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+  }
+}
+
+.btn-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+
+  @include max(576px) {
+    margin-top: 2.4rem;
+  }
+}

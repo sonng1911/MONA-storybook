@@ -1,0 +1,151 @@
+@use './reset' as *;
+@use './mixins' as *;
+@use './font' as *;
+@use './variable' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+
+  ::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background: rgba(#008566, 0.2);
+  }
+}
+
+body {
+  font-family: var(--font-pri);
+  @include fz-16;
+  font-weight: 400;
+  color: $color-text;
+  line-height: 150%;
+  overflow: hidden auto;
+
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+select {
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+
+  font-family: $font-pri;
+}
+
+button {
+  padding: 0;
+  background-color: transparent;
+}
+
+input,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  font-family: $font-pri;
+}
+
+.main {
+  min-height: calc(100vh - 93.5rem);
+  transition: transform 0.4s;
+
+  // @include max(1199.98px) {
+  //   padding-top: 7rem;
+  // }
+
+  &.is-active {
+    transform: translateX(32rem);
+  }
+}
+
+%container {
+  width: 100%;
+  max-width: var(--container-width);
+  // height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.container {
+  @extend %container;
+}
+
+.no-scroll {
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+iframe {
+  vertical-align: middle;
+}
+
+img {
+  display: block;
+  // width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.tabBtn,
+.gItem {
+  cursor: pointer;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: $color-white;
+  -webkit-box-shadow: 0 0 0 100rem transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input[type="date"] {
+  &::-webkit-calendar-picker-indicator {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+    color: transparent;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  &::-webkit-date-and-time-value {
+    text-align: left;
+  }
+}
+
+.hide-sitename {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: visible;
+}

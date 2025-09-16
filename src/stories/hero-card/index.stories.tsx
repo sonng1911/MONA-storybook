@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import renderPug from './hero-card.compiled.js';
 import './hero-card.scss';
 import previewUrl from './product1.png?url';
+import '../_common/fonts/SVN-Gilroy/stylesheet.css';
 
 type Props = {
   imgSrc: string;
